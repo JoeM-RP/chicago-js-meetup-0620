@@ -7,7 +7,10 @@ I’ll be taking a simple example of a react web component and converting it to 
 ## Script
 
 - Review React.js
+
 - Review desired component
+
+- Download Expo Go from your favorite App Store for Android or iOS, or play along from your browser: <https://snack.expo.dev/@git/github.com/JoeM-RP/chicago-js-meetup-0620:demo-app-native>
 
 - Make a new expo project: `npx create-expo-app --template`
   - Choose a template: `blank (typescript)`
