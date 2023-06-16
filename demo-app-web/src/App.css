@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+p, a {
+  text-align: inherit;
+  font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a:visited {
+  color: blue;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: #E5EAEF;
+  display: flex;
+  flex: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.root {
+  width: 100vw;
+  display: flex;
+  flex: 1;
+}
+
+.container {
+  background-color: #E5EAEF;
+  align-items: center;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.spacer {
+  height: 20px
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 20px;
+  row-gap: 8px;
+  max-width: 750px;
+  width: 100%;
+}
+
+.cardContainer {
+  row-gap: 4px;
+  column-gap: 12px;
+}
+
+.cardTitle {
+  font-weight: 500;
+}
+
+.cardBody, p.cardBody {
+  font-style: italic;
+  font-size: 12;
+}
+
+.cardRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cardLink {
+  color: blue
+}
+
+.cardImage {
+  border-radius: 100px;
+  position: relative;
+  right: 10px;
+  bottom: -50px;
+  border: 1px solid black;
+  padding: 3px;
+  background-color: white;
+  justify-content: flex-end;
+  justify-self: flex-end;
+
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin-top: -100px;
+  left: 650px;
 }
