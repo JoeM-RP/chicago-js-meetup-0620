@@ -1,6 +1,6 @@
 # chicago-js-meetup-0620
 
-A little demo of some fun things with React Nstive for Chicago JS Meetup, 20 June 2023.
+A little demo of some fun things with React Native for Chicago JS Meetup, 20 June 2023.
 
 I’ll be taking a simple example of a react web component and converting it to a native mobile component in react native for the purpose of migrating a web-only app to be cross platform (iOS, Android, and Web) using a single code base. As part of the talk, I’ll also be setting up a basic React Native project using Expo
 
@@ -74,4 +74,23 @@ I’ll be taking a simple example of a react web component and converting it to 
       }
     }),
   },
+```
+
+- bonus bonus: media queries!!
+
+- `yarn add @expo/match-media react-responsive`
+
+```javascript
+
+import { useMediaQuery } from "react-responsive";
+
+  const isTabletOrMobileDevice = useMediaQuery({
+    maxDeviceWidth: 1224,
+    // alternatively...
+    query: "(max-device-width: 1224px)"  
+  });
+  if (isTabletOrMobileDevice) {
+    return (<Text>Hi Mobile Users 👋</Text>)
+  }
+  return (<Text>👋 Hello Desktop People</Text>)
 ```
