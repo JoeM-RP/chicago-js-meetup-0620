@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { Linking, StyleSheet, Text, TouchableOpacity, View, Image, SafeAreaView, Platform } from "react-native";
 import { User } from "./types";
 
+/* BONUS */
+import { useMediaQuery } from "react-responsive";
+
 export default function App() {
   const [userCard, setUserCard] = useState<User>();
 
@@ -13,6 +16,46 @@ export default function App() {
         setUserCard(json.results[0]);
       });
   }, []);
+
+  /* BONUS */
+  const isTabletOrMobile = useMediaQuery({
+    maxWidth: 1224,
+    // alternatively...
+    query: "(max-width: 1224px)",
+    // other fun things...
+    // maxDeviceWidth: 1224,
+    // query: "(max-device-width: 1224px)",
+    // aspectRatio: "16:9",
+  });
+
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  })
+  const isBigScreen = useMediaQuery({ query: '(min-device-width: 1824px)' })
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
+
+  console.info("isBigScreen: " + isBigScreen)
+  console.info("isTabletOrMobile: " + isTabletOrMobile)
+  console.info("isPortrait:" + isPortrait)
+  console.info("isRetina:" + isRetina)
+
+  const renderMediaQuery = () => {
+    if (!isDesktopOrLaptop) {
+      return (<Text>Hi Mobile Users 👋</Text>)
+    }
+    return (<Text>👋 Hello Desktop People</Text>)
+  }
+
+  let stylesDesktop = StyleSheet.create({})
+  // don't forget to merge styles in renderUserCard!
+  if (isDesktopOrLaptop)
+    stylesDesktop = StyleSheet.create({
+      cardDesktop: {
+        maxWidth: 750,
+      },
+    });
+  /* End BONUS */
 
   const openLink = async (link: string) => {
     if (await Linking.canOpenURL(link)) Linking.openURL(link);
@@ -34,7 +77,7 @@ export default function App() {
 
     const { location, email, name, phone, picture, login } = userCard
     return (
-      <View style={styles.card}>
+      <View style={[styles.card, stylesDesktop.cardDesktop]}>
         <View style={{ flexDirection: "row", columnGap: 10, marginBottom: 10 }}>
           <Text style={styles.cardTitle}>
             {name.first} {name.last}
@@ -81,11 +124,13 @@ export default function App() {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: "#E5EAEF"}}>
       <View style={styles.container}>
+        {renderMediaQuery()}
         <Text>Open up App.tsx to start working on your app!</Text>
         <View style={styles.spacer} />
         {renderUserCard()}
         <StatusBar style="auto" />
       </View>
+
     </SafeAreaView>
   );
 }
@@ -116,7 +161,7 @@ const styles = StyleSheet.create({
         width: "100%"
       },
       web: {
-        maxWidth: "750px",
+        // maxWidth: "750px",
       }
     }),
   },
@@ -149,3 +194,4 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
 });
+
