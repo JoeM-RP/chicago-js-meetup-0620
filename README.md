@@ -85,9 +85,9 @@ I’ll be taking a simple example of a react web component and converting it to 
 import { useMediaQuery } from "react-responsive";
 
   const isTabletOrMobileDevice = useMediaQuery({
-    maxDeviceWidth: 1224,
+    maxWidth: 1224,
     // alternatively...
-    query: "(max-device-width: 1224px)"  
+    query: "(max-width: 1224px)"  
   });
   if (isTabletOrMobileDevice) {
     return (<Text>Hi Mobile Users 👋</Text>)
