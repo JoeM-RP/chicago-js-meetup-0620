@@ -6,9 +6,10 @@ function App() {
   const [userCard, setUserCard] = useState<User>();
 
   useEffect(() => {
-    fetch("https://randomuser.me/api/")
+    fetch("https://randomuser.me/api/?nat=us,fr,gb,mx,in")
       .then((response) => response.json())
       .then((json) => {
+        // N.B - this will render twice on web in __DEV__ since we are using <React.StrictMode>
         setUserCard(json.results[0]);
       });
   }, []);

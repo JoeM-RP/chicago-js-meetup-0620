@@ -10,7 +10,7 @@ export default function App() {
   const [userCard, setUserCard] = useState<User>();
 
   useEffect(() => {
-    fetch("https://randomuser.me/api/")
+    fetch("https://randomuser.me/api/?nat=us,fr,gb,mx,in")
       .then((response) => response.json())
       .then((json) => {
         setUserCard(json.results[0]);
