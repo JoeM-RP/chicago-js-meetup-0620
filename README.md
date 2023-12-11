@@ -25,15 +25,11 @@ I’ll be taking a simple example of a react web component and converting it to 
 ```javascript
   const [userCard, setUserCard] = useState<User>();
 
-  const randId = Math.floor(Math.random() * 10);
-
-  // https://jsonplaceholder.typicode.com/
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users/" + randId)
+    fetch("https://randomuser.me/api/?nat=us,fr,gb,mx,in")
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
-        setUserCard(json);
+        setUserCard(json.results[0]);
       });
   }, []);
 ```
