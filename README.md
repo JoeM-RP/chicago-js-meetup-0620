@@ -36,14 +36,16 @@ I’ll be taking a simple example of a react web component and converting it to 
 
 - copy types folder/file, import types
 
-- Convert some elements:
-  - Views
-  - Text
-  - Image
+- Stub out `renderUserCard`
 
-- Translate styles
+- Convert some elements:
+  - `<div>` --> `<View>`
+  - `<p>` --> `<Text>`
+  - `<img>` --> `<Image>`
 
 - Make a touchable opacity function
+
+- Translate styles
 
 - bonus - back to the web! `npx expo install react-native-web@~0.18.10 react-dom@18.2.0 @expo/webpack-config@^18.0.1`
 
